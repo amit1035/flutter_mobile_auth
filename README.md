@@ -17,11 +17,13 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Screenshots
 
+## Screenshots
+
 ### 🏠 Home Screen
-![Home Screen](assets/images/HomeScreen.png)
+<img src="assets/images/HomeScreen.png" alt="Home Screen" width="300" height="500">
 
 ### 🔐 Login Screen
-![Login Screen](assets/images/loginScreen.png)
+<img src="assets/images/loginScreen.png" alt="Login Screen" width="300" height="500">
 
 ### 🔢 OTP Screen
-![OTP Screen](assets/images/OtpScreen.png)
+<img src="assets/images/OtpScreen.png" alt="OTP Screen" width="300" height="500">
