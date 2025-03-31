@@ -5,7 +5,7 @@ import '../modules/OtpVerificationResponse.dart';
 
 part 'ApiService.g.dart';
 
-@RestApi(baseUrl: 'https://www.call-astro.com/api/')
+@RestApi(baseUrl: 'https://jsonplaceholder.typicode.com/')
 abstract class ApiService {
   factory ApiService(Dio dio, {String? baseUrl}) = _ApiService;
 
