@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'home_screen.dart';
+import 'HomePage.dart';
 
 class OtpScreen extends StatefulWidget {
   final String mobileNumber;
 
-  const OtpScreen({required this.mobileNumber});
+  const OtpScreen({Key? key, required this.mobileNumber}) : super(key: key);
 
   @override
   _OtpScreenState createState() => _OtpScreenState();
@@ -12,25 +12,41 @@ class OtpScreen extends StatefulWidget {
 
 class _OtpScreenState extends State<OtpScreen> {
   final TextEditingController _otpController = TextEditingController();
+  bool _isLoading = false;
 
   void _verifyOtp() {
     String otp = _otpController.text.trim();
-    if (otp.length == 6) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => HomeScreen(mobileNumber: widget.mobileNumber)),
-      );
-    } else {
+
+    if (otp.length != 4) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Please enter a valid 6-digit OTP')),
+        SnackBar(content: Text('Please enter a valid 4-digit OTP')),
       );
+      return;
     }
+
+    setState(() {
+      _isLoading = true;
+    });
+    Future.delayed(Duration(seconds: 2), () {
+      setState(() {
+        _isLoading = false;
+      });
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomeScreen(mobileNumber: widget.mobileNumber),
+        ),
+      );
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Verify OTP')),
+      appBar: AppBar(
+        title: Text('Verify OTP'),
+        backgroundColor: Colors.redAccent,
+      ),
       body: Padding(
         padding: EdgeInsets.all(20),
         child: Column(
@@ -45,7 +61,7 @@ class _OtpScreenState extends State<OtpScreen> {
             TextField(
               controller: _otpController,
               keyboardType: TextInputType.number,
-              maxLength: 6,
+              maxLength: 4,
               decoration: InputDecoration(
                 labelText: 'Enter OTP',
                 border: OutlineInputBorder(),
@@ -54,8 +70,20 @@ class _OtpScreenState extends State<OtpScreen> {
             ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: _verifyOtp,
-              child: Text('Verify OTP'),
+              onPressed: _isLoading ? null : _verifyOtp,
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                backgroundColor: Colors.redAccent,
+              ),
+              child: _isLoading
+                  ? CircularProgressIndicator(color: Colors.white)
+                  : Text(
+                'Verify OTP',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+              ),
             ),
           ],
         ),
