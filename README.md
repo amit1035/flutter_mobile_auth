@@ -32,4 +32,4 @@ This project implements an **OTP-based authentication system** using Flutter. It
 ## 🔗 Getting Started
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/amit1035/flutter_project.git
+   git clone https://github.com/amit1035/flutter_mobile_auth.git
