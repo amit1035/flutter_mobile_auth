@@ -17,7 +17,7 @@ This project implements an **OTP-based authentication system** using Flutter. It
     <td><b>🏠 Home Screen</b></td>
   </tr>
   <tr>
-    <td><img src="assets/images/loginScreen.png" alt="Login Screen" width="300"></td>
+    <td><img src="assets/images/LoginScreen.png" alt="Login Screen" width="300"></td>
     <td><img src="assets/images/OtpScreen.png" alt="OTP Screen" width="300"></td>
     <td><img src="assets/images/HomeScreen.png" alt="Home Screen" width="300"></td>
   </tr>
