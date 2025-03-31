@@ -24,7 +24,7 @@ samples, guidance on mobile development, and a full API reference.
     <td><b>🏠 Home Screen</b></td>
   </tr>
   <tr>
-    <td><img src="assets/images/loginScreen.png" alt="Login Screen" width="300" height="500"></td>
+    <td><img src="assets/images/LoginScreen.png" alt="Login Screen" width="300" height="500"></td>
     <td><img src="assets/images/OtpScreen.png" alt="OTP Screen" width="300" height="500"></td>
     <td><img src="assets/images/HomeScreen.png" alt="Home Screen" width="300" height="500"></td>
   </tr>
